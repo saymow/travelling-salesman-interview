@@ -31,7 +31,7 @@ const CreateClientScreen: React.FC = () => {
     try {
       setIsLoading(true);
       await createClient(clientData);
-      navigate("/");
+      // navigate("/");
     } catch (err) {
       // todo
       console.error(err);
@@ -78,7 +78,7 @@ const CreateClientScreen: React.FC = () => {
                         SELECIONE A LOCALIZAÇÃO
                       </Typography>
                       <MapContainer
-                        height={320}
+                        height={420}
                         markerPosition={fmk.values.location}
                         onMarketPositionChange={(newPostion) => {
                           fmk.setFieldValue("location", newPostion);
@@ -86,7 +86,7 @@ const CreateClientScreen: React.FC = () => {
                       />
                     </Box>
 
-                    <Stack mt={2}>
+                    <Stack mt={3}>
                       <Button
                         type="submit"
                         variant="contained"

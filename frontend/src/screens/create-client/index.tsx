@@ -14,6 +14,7 @@ import { CreateClient } from "../../resources/client/client-types";
 import useClient from "../../resources/client/use-client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 const initialValues: CreateClient = {
   name: "",
@@ -31,7 +32,7 @@ const CreateClientScreen: React.FC = () => {
     try {
       setIsLoading(true);
       await createClient(clientData);
-      // navigate("/");
+      navigate("/");
     } catch (err) {
       // todo
       console.error(err);
@@ -41,8 +42,8 @@ const CreateClientScreen: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="md">
-      <Box mt={4}>
+    <Container maxWidth="md" className="create-client-container">
+      <Box>
         <Paper elevation={5}>
           <Box padding={2}>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>

@@ -1,0 +1,16 @@
+INSERT INTO clients (name, email, phone, lat, lng) VALUES
+    ('Ana Silva', 'ana.silva@example.com', '31 91234 5678', -23.5505, -46.6333),
+    ('Bruno Santos', 'bruno.santos@example.com', '31 98765 4321', -22.9068, -43.1729),
+    ('Carla Oliveira', 'carla.oliveira@example.com', '31 99876 5432', 38.7223, -9.1393),
+    ('Diego Pereira', 'diego.pereira@example.com', '31 92345 6789', -23.5505, -46.6333),
+    ('Elena Costa', 'elena.costa@example.com', '31 98765 8765', 38.7223, -9.1393),
+    ('Fábio Lima', 'fabio.lima@example.com', '31 93333 2222', -22.9068, -43.1729),
+    ('Gabriela Rocha', 'gabriela.rocha@example.com', '31 94444 5555', 38.7223, -9.1393),
+    ('Hugo Ferreira', 'hugo.ferreira@example.com', '31 95555 4444', -23.5505, -46.6333),
+    ('Isabel Santos', 'isabel.santos@example.com', '31 96666 3333', -22.9068, -43.1729),
+    ('João Costa', 'joao.costa@example.com', '31 97777 2222', 38.7223, -9.1393),
+    ('Kátia Oliveira', 'katia.oliveira@example.com', '31 98888 1111', -23.5505, -46.6333),
+    ('Luís Pereira', 'luis.pereira@example.com', '31 99999 0000', -22.9068, -43.1729),
+    ('Mariana Lima', 'mariana.lima@example.com', '31 91111 9999', 38.7223, -9.1393),
+    ('Nuno Rocha', 'nuno.rocha@example.com', '31 92222 8888', -23.5505, -46.6333),
+    ('Olga Ferreira', 'olga.ferreira@example.com', '31 93333 7777', -22.9068, -43.1729);

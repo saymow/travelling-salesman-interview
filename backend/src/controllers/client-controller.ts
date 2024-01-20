@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import CreateClientService from "../services/create-client-service";
-import ClientRepository from "../repositories/client-repository";
+import ClientRepository, {
+  SearchParams,
+} from "../repositories/client-repository";
+import ListClientsService from "../services/list-clients-service";
 
 class ClientController {
   async create(req: Request, res: Response) {
@@ -9,7 +12,17 @@ class ClientController {
 
     await createClientService.execute(data);
 
-    res.sendStatus(201);
+    return res.sendStatus(201);
+  }
+
+  async list(req: Request, res: Response) {
+    const params = req.query;
+    const listClientsService = new ListClientsService(new ClientRepository());
+    const clients = await listClientsService.execute(
+      params as unknown as SearchParams
+    );
+
+    return res.send(clients);
   }
 }
 

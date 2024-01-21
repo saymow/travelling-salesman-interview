@@ -72,4 +72,16 @@ describe("ListClientsService", () => {
 
     await expect(sut.execute(params)).rejects.toThrow();
   });
+
+  it("Should return search result on success", async () => {
+    const { sut, clientRepository } = makeSut();
+    const params = makeSearchParams();
+
+    expect(await sut.execute(params)).toEqual(
+      expect.objectContaining({
+        list: [],
+        total: 0,
+      })
+    );
+  });
 });

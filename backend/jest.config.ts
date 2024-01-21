@@ -10,6 +10,7 @@ const config: Config = {
   collectCoverage: false,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
+  modulePathIgnorePatterns: ["__tests__"],
 };
 
 export default config;

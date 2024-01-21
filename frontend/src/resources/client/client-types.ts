@@ -1,4 +1,5 @@
 import { LatLngTuple } from "../../components/Map/helpers";
+import { Client } from "./client-model";
 
 export interface CreateClient {
   name: string;
@@ -16,12 +17,22 @@ export interface ExternalData<T> {
   };
 }
 
-export interface Paginated<T> {
+export interface Paginated<T, K = undefined> {
   data: T[];
   limit: number;
   page: number;
   total: number;
+  query: K;
 }
+
+export type PaginetedClientsList = Paginated<
+  Client,
+  {
+    name?: string;
+    email?: string;
+    phone?: string;
+  }
+>;
 
 export interface ListClientsSearchParams {
   limit: number;

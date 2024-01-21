@@ -1,10 +1,11 @@
 import { Box, Button, Container, Paper, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useClient from "../../resources/client/use-client";
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Table, { Column, Row } from "../../components/Table";
-import "./styles.css";
 import { Client } from "../../resources/client/client-model";
+import PathModal from "./path-modal";
+import "./styles.css";
 
 const tableColumns: Column[] = [
   {
@@ -23,6 +24,14 @@ const tableColumns: Column[] = [
     id: "phone",
     label: "Telefone",
   },
+  {
+    id: "lat",
+    label: "Latitude",
+  },
+  {
+    id: "lng",
+    label: "Longitude",
+  },
 ];
 
 const makeClientRows = (clients: Client[]): Row[] => {
@@ -31,12 +40,19 @@ const makeClientRows = (clients: Client[]): Row[] => {
     name: client.name,
     email: client.email,
     phone: client.phone,
+    lat: client.latLng[0],
+    lng: client.latLng[1],
   }));
 };
 
 const HomeScreen: React.FC = () => {
   const navigate = useNavigate();
   const { clientsList, listClients } = useClient();
+  const [isPathModalOpen, setIsPathModalOpen] = useState(false);
+  const memoizedLimit = useMemo(
+    () => clientsList.data?.limit ?? 10,
+    [clientsList.data?.limit]
+  );
   const tableRows = useMemo(
     () => makeClientRows(clientsList.data?.data ?? []),
     [clientsList.data?.data]
@@ -54,11 +70,22 @@ const HomeScreen: React.FC = () => {
     });
   }, [listClients]);
 
-  const handleQueryChange = useCallback(
-    (newSearch: string, newPage: number, newLimit: number) => {
+  const handlePaginationChange = useCallback(
+    (newPage: number, newLimit: number) => {
       listClients({
         page: newPage,
         limit: newLimit,
+        query: clientsList.data!.query,
+      });
+    },
+    [clientsList.data, listClients]
+  );
+
+  const handleSeachChange = useCallback(
+    (newSearch: string) => {
+      listClients({
+        page: 0,
+        limit: memoizedLimit,
         query: {
           email: newSearch,
           name: newSearch,
@@ -66,45 +93,68 @@ const HomeScreen: React.FC = () => {
         },
       });
     },
-    [listClients]
+    [memoizedLimit, listClients]
   );
 
   const handleNavigateToCreateClient = () => {
     navigate("/create-client");
   };
 
+  const handleOpenPathModal = () => {
+    setIsPathModalOpen(true);
+  };
+
+  const handleClosePathModal = () => {
+    setIsPathModalOpen(false);
+  };
+
   return (
-    <Container className="home-container" maxWidth="xl">
-      <Paper className="home-paper" elevation={3}>
-        <Stack className="home-stack">
-          <Box className="home-header" paddingY={2}>
-            <Stack direction="row-reverse">
-              <Button
-                variant="contained"
-                size="large"
-                onClick={handleNavigateToCreateClient}
-              >
-                Cadastrar cliente
-              </Button>
-            </Stack>
-          </Box>
-          <Box className="home-content-container">
-            <Table
-              columns={tableColumns}
-              rows={tableRows}
-              total={clientsList.data?.total ?? 0}
-              rowIdColumn="id"
-              searchInputPlaceholder="Busque por nome, email ou telefone"
-              query={{
-                page: clientsList.data?.page ?? 0,
-                limit: clientsList.data?.limit ?? 10,
-              }}
-              onQueryChange={handleQueryChange}
-            />
-          </Box>
-        </Stack>
-      </Paper>
-    </Container>
+    <>
+      <Container className="home-container" maxWidth="xl">
+        <Paper className="home-paper" elevation={3}>
+          <Stack className="home-stack">
+            <Box className="home-header" paddingY={3}>
+              <Stack direction="row-reverse" gap={2}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={handleNavigateToCreateClient}
+                >
+                  Cadastrar cliente
+                </Button>
+
+                <Button
+                  variant="contained"
+                  size="large"
+                  color="secondary"
+                  onClick={handleOpenPathModal}
+                >
+                  Mostrar Rota
+                </Button>
+              </Stack>
+            </Box>
+            <Box className="home-content-container">
+              <Table
+                columns={tableColumns}
+                rows={tableRows}
+                total={clientsList.data?.total ?? 0}
+                rowIdColumn="id"
+                search={{
+                  onChange: handleSeachChange,
+                  placeholder: "Busque por nome, email ou telefone",
+                }}
+                pagination={{
+                  page: clientsList.data?.page ?? 0,
+                  limit: clientsList.data?.limit ?? 10,
+                  onChange: handlePaginationChange,
+                }}
+              />
+            </Box>
+          </Stack>
+        </Paper>
+      </Container>
+      <PathModal isOpen={isPathModalOpen} handleClose={handleClosePathModal} />
+    </>
   );
 };
 

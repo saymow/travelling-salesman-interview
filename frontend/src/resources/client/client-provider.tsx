@@ -19,23 +19,13 @@ const ClientProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       try {
         setClientsList((prev) => ({ ...prev, loading: true }));
 
-        const clientsList = await clientService.list(params);
+        const data = await clientService.list(params);
 
-        setClientsList((prev) => ({
-          ...prev,
-          success: true,
-          loading: false,
-          data: clientsList,
-        }));
+        setClientsList({ success: true, loading: false, data });
       } catch (err: unknown) {
         console.error(err);
-        setClientsList((prev) => ({
-          ...prev,
-          success: false,
-          loading: false,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          error: err as any,
-        }));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        setClientsList({ success: false, loading: false, error: err as any });
       }
     },
     []

@@ -1,9 +1,8 @@
 import api from "../../services/api";
-import { Client } from "./client-model";
 import {
   CreateClient,
   ListClientsSearchParams,
-  Paginated,
+  PaginetedClientsList,
 } from "./client-types";
 
 class ClientService {
@@ -11,7 +10,7 @@ class ClientService {
     return api.post("/clients", createClientData);
   }
 
-  async list(params: ListClientsSearchParams): Promise<Paginated<Client>> {
+  async list(params: ListClientsSearchParams): Promise<PaginetedClientsList> {
     const { limit, page, query: q } = params;
 
     return api
@@ -22,6 +21,7 @@ class ClientService {
         limit,
         page,
         total: data.total,
+        query: q,
       }));
   }
 }

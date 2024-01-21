@@ -16,10 +16,10 @@
 }
 
 .home-header {
-  height: 74.25px;
+  height: 90.25px;
 }
 
 .home-content-container {
-  height: calc(100% - 74.25px);
+  height: calc(100% - 90.25px);
   overflow: auto;
 }

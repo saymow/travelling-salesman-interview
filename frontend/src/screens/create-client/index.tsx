@@ -80,10 +80,15 @@ const CreateClientScreen: React.FC = () => {
                       </Typography>
                       <MapContainer
                         height={420}
-                        markerPosition={fmk.values.location}
-                        onMarketPositionChange={(newPostion) => {
-                          fmk.setFieldValue("location", newPostion);
-                        }}
+                        markers={[
+                          {
+                            type: 'MOVABLE',
+                            position: fmk.values.location,
+                            onMove: (newPostion) => {
+                              fmk.setFieldValue("location", newPostion);
+                            },
+                          },
+                        ]}
                       />
                     </Box>
 

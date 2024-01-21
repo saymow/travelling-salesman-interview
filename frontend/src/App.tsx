@@ -1,11 +1,14 @@
 import ClientProvider from "./resources/client/client-provider";
 import Router from "./router";
+import PathProvider from "./resources/path/path-provider";
 import "./app.css";
 
 function App() {
   return (
     <ClientProvider>
-      <Router />
+      <PathProvider>
+        <Router />
+      </PathProvider>
     </ClientProvider>
   );
 }

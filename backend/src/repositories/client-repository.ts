@@ -1,5 +1,5 @@
-import { Client } from "pg";
 import db from "../database";
+import { Client } from "../models/client-model";
 import { CreateClient } from "./types";
 
 export interface SearchParams {
@@ -13,7 +13,7 @@ export interface SearchParams {
 }
 
 export interface SearchResult {
-  list: Client[];
+  list: any[];
   total: number;
 }
 
@@ -73,6 +73,16 @@ class ClientRepository {
       })),
       total: parseInt(countResult.rows[0].count),
     };
+  }
+
+  async listAll(): Promise<any[]> {
+    const result = await db.query(`SELECT * FROM clients;`);
+
+    return result.rows.map((client) => ({
+      ...client,
+      lat: parseFloat(client.lat),
+      lng: parseFloat(client.lng),
+    }));
   }
 }
 

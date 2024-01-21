@@ -1,0 +1,3 @@
+.leaflet-marker.red {
+  filter: hue-rotate(130deg);
+}

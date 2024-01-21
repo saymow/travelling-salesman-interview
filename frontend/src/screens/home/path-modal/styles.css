@@ -1,0 +1,19 @@
+.path-line {
+  display: block;
+  height: 0.5rem;
+  width: 12rem;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 255, 1),
+    rgba(0, 0, 255, 0.3)
+  );
+}
+
+.path-line-legend {
+  display: flex;
+  justify-content: space-between;
+}
+
+.path-modal-container {
+  height: calc(100vh - 2rem);
+}

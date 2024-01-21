@@ -3,12 +3,11 @@ import {
   CreateClient,
   ExternalData,
   ListClientsSearchParams,
-  Paginated,
+  PaginetedClientsList
 } from "./client-types";
-import { Client } from "./client-model";
 
 export interface ClientContextType {
-  clientsList: ExternalData<Paginated<Client>>;
+  clientsList: ExternalData<PaginetedClientsList>;
   createClient: (createClientData: CreateClient) => Promise<void>;
   listClients: (params: ListClientsSearchParams) => Promise<void>;
 }

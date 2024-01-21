@@ -6,6 +6,9 @@ import Table, { Column, Row } from "../../components/Table";
 import { Client } from "../../resources/client/client-model";
 import PathModal from "./path-modal";
 import "./styles.css";
+import Loading from "../../components/Loading";
+import MyButton from "../../components/Button";
+import usePath from "../../resources/path/use-path";
 
 const tableColumns: Column[] = [
   {
@@ -48,7 +51,12 @@ const makeClientRows = (clients: Client[]): Row[] => {
 const HomeScreen: React.FC = () => {
   const navigate = useNavigate();
   const { clientsList, listClients } = useClient();
+  const { salesmanPath, fetchSalesmanPath } = usePath();
   const [isPathModalOpen, setIsPathModalOpen] = useState(false);
+  const initialLoading = useMemo(
+    () => clientsList.uninitialized,
+    [clientsList.uninitialized]
+  );
   const memoizedLimit = useMemo(
     () => clientsList.data?.limit ?? 10,
     [clientsList.data?.limit]
@@ -69,6 +77,10 @@ const HomeScreen: React.FC = () => {
       },
     });
   }, [listClients]);
+
+  useEffect(() => {
+    fetchSalesmanPath();
+  }, [fetchSalesmanPath]);
 
   const handlePaginationChange = useCallback(
     (newPage: number, newLimit: number) => {
@@ -108,6 +120,14 @@ const HomeScreen: React.FC = () => {
     setIsPathModalOpen(false);
   };
 
+  if (initialLoading) {
+    return (
+      <Container className="loading-container">
+        <Loading />
+      </Container>
+    );
+  }
+
   return (
     <>
       <Container className="home-container" maxWidth="xl">
@@ -123,14 +143,15 @@ const HomeScreen: React.FC = () => {
                   Cadastrar cliente
                 </Button>
 
-                <Button
+                <MyButton
                   variant="contained"
                   size="large"
                   color="secondary"
                   onClick={handleOpenPathModal}
+                  loading={salesmanPath.loading}
                 >
                   Mostrar Rota
-                </Button>
+                </MyButton>
               </Stack>
             </Box>
             <Box className="home-content-container">
@@ -153,7 +174,11 @@ const HomeScreen: React.FC = () => {
           </Stack>
         </Paper>
       </Container>
-      <PathModal isOpen={isPathModalOpen} handleClose={handleClosePathModal} />
+      <PathModal
+        salesmanPathExternalData={salesmanPath}
+        isOpen={isPathModalOpen}
+        handleClose={handleClosePathModal}
+      />
     </>
   );
 };

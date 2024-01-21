@@ -81,10 +81,7 @@ const Table: React.FC<Props> = (props) => {
   };
 
   return (
-    <Paper
-      className="table-container"
-      sx={{ width: "100%", flex: 1, display: "flex", flexDirection: "column" }}
-    >
+    <Paper className="table-container">
       {searchParams && (
         <Stack direction="row-reverse">
           <Box>
@@ -138,6 +135,7 @@ const Table: React.FC<Props> = (props) => {
       </TableContainer>
       {paginationParams && (
         <TablePagination
+          sx={{ marginTop: "auto", overflow: 'hidden' }}
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           count={total}

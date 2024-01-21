@@ -12,6 +12,7 @@ export interface ExternalData<T> {
   data?: T;
   loading?: boolean;
   success?: boolean;
+  uninitialized?: boolean;
   error?: {
     message: string;
   };

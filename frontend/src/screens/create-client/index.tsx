@@ -62,7 +62,7 @@ const CreateClientScreen: React.FC = () => {
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               {(fmk) => (
                 <Form>
-                  <Stack pt={1}>
+                  <Stack>
                     <Typography variant={"h4"} textAlign="center" mb={2}>
                       CADASTRAR CLIENTE
                     </Typography>

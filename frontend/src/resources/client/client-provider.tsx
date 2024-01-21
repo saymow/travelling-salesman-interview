@@ -5,7 +5,7 @@ import clientService from "./client-service";
 const ClientProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [clientsList, setClientsList] = useState<
     ClientContextType["clientsList"]
-  >({ loading: true });
+  >({ loading: true, uninitialized: true });
 
   const createClient: ClientContextType["createClient"] = useCallback(
     async (clientData) => {

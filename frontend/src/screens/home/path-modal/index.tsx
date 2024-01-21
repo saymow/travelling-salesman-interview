@@ -1,16 +1,18 @@
 import { Box, Stack } from "@mui/material";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import MapContainer, { Marker, Polyline } from "../../../components/Map";
 import { ORIGIN } from "../../../components/Map/helpers";
 import Modal from "../../../components/Modal";
-import usePath from "../../../resources/path/use-path";
-import { Client } from "../../../resources/client/client-model";
-import "./styles.css";
 import Table, { Column, Row } from "../../../components/Table";
+import { Client } from "../../../resources/client/client-model";
+import { ExternalData } from "../../../resources/client/client-types";
+import { ClientsSalesmanTravellingResult } from "../../../resources/path/path-model";
+import "./styles.css";
 
 interface Props {
   isOpen: boolean;
   handleClose: VoidFunction;
+  salesmanPathExternalData: ExternalData<ClientsSalesmanTravellingResult>;
 }
 
 const tableColumns: Column[] = [
@@ -96,8 +98,7 @@ const makePolylines = (clients: Client[]): Polyline[] => {
 };
 
 const PathModal: React.FC<Props> = (props) => {
-  const { isOpen, handleClose } = props;
-  const { salesmanPath, fetchSalesmanPath } = usePath();
+  const { salesmanPathExternalData: salesmanPath, isOpen, handleClose } = props;
   const markers: Marker[] = useMemo(
     () => makeMarkers(salesmanPath.data?.path ?? []),
     [salesmanPath.data?.path]
@@ -110,10 +111,6 @@ const PathModal: React.FC<Props> = (props) => {
     () => makeClientRows(salesmanPath.data?.path ?? []),
     [salesmanPath.data?.path]
   );
-
-  useEffect(() => {
-    fetchSalesmanPath();
-  }, [fetchSalesmanPath]);
 
   return (
     <Modal

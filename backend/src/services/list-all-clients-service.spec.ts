@@ -12,8 +12,8 @@ const makeSut = () => {
   };
 };
 
-describe("ListClientsService", () => {
-  it("Should throw if clientRepository.listALL throws", async () => {
+describe("ListAllClientsService", () => {
+  it("Should throw if clientRepository.listAll throws", async () => {
     const { sut, clientRepository } = makeSut();
 
     jest.spyOn(clientRepository, "listAll").mockImplementation(() => {

@@ -131,12 +131,13 @@ const PathModal: React.FC<Props> = (props) => {
               <article className="path-line-container">
                 <span className="path-line"></span>
                 <section className="path-line-legend">
-                  <span>Início</span>
-                  <span>Fim</span>
+                  <strong>Início</strong>
+                  <strong>Fim</strong>
                 </section>
               </article>
               <span>
-                Distância: {(salesmanPath.data?.distance ?? 0).toFixed(2)} km
+                <strong>Distância:</strong>{" "}
+                {(salesmanPath.data?.distance ?? 0).toFixed(2)} km
               </span>
             </>
           }

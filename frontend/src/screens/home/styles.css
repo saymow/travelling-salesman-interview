@@ -21,5 +21,6 @@
 
 .home-content-container {
   height: calc(100% - 90.25px);
+  display: flex;
   overflow: auto;
 }

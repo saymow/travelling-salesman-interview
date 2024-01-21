@@ -14,8 +14,8 @@ import { CreateClient } from "../../resources/client/client-types";
 import useClient from "../../resources/client/use-client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./styles.css";
 import { ArrowBack } from "@mui/icons-material";
+import "./styles.css";
 
 const initialValues: CreateClient = {
   name: "",

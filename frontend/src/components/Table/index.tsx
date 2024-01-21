@@ -9,6 +9,7 @@ import TablePagination from "@mui/material/TablePagination";
 import { Box, Stack } from "@mui/material";
 import TableRow from "@mui/material/TableRow";
 import SearchTextField from "./SearchTextField";
+import "./styles.css";
 
 export interface Column {
   id: string;
@@ -80,10 +81,13 @@ const Table: React.FC<Props> = (props) => {
   };
 
   return (
-    <Paper sx={{ width: "100%" }}>
+    <Paper
+      className="table-container"
+      sx={{ width: "100%", flex: 1, display: "flex", flexDirection: "column" }}
+    >
       {searchParams && (
         <Stack direction="row-reverse">
-          <Box sx={{ maxWidth: 360, width: "100%" }}>
+          <Box>
             <SearchTextField
               placeholder={searchParams.placeholder}
               value={search}

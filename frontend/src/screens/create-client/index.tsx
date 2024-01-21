@@ -15,6 +15,7 @@ import useClient from "../../resources/client/use-client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
+import { ArrowBack } from "@mui/icons-material";
 
 const initialValues: CreateClient = {
   name: "",
@@ -41,15 +42,27 @@ const CreateClientScreen: React.FC = () => {
     }
   };
 
+  const handleGoBack = () => {
+    navigate("/");
+  };
+
   return (
     <Container maxWidth="md" className="create-client-container">
       <Box>
         <Paper elevation={5}>
+          <Button
+            variant="outlined"
+            size="medium"
+            onClick={handleGoBack}
+            className="create-client-go-back-btn"
+          >
+            <ArrowBack sx={{ marginRight: 1 }} /> Voltar
+          </Button>
           <Box padding={2}>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               {(fmk) => (
                 <Form>
-                  <Stack>
+                  <Stack pt={1}>
                     <Typography variant={"h4"} textAlign="center" mb={2}>
                       CADASTRAR CLIENTE
                     </Typography>
@@ -79,10 +92,10 @@ const CreateClientScreen: React.FC = () => {
                         SELECIONE A LOCALIZAÇÃO
                       </Typography>
                       <MapContainer
-                        height={420}
+                        height={360}
                         markers={[
                           {
-                            type: 'MOVABLE',
+                            type: "MOVABLE",
                             position: fmk.values.location,
                             onMove: (newPostion) => {
                               fmk.setFieldValue("location", newPostion);

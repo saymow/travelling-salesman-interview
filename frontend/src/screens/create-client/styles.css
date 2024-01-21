@@ -5,3 +5,9 @@
   flex-direction: column;
   padding: 2rem;
 }
+
+.create-client-go-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}

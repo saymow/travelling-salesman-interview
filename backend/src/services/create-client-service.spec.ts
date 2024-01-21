@@ -1,8 +1,6 @@
-import { SearchParams } from "../repositories/client-repository";
 import { CreateClient } from "../repositories/types";
 import { makeClientRepositoryStub } from "./__tests__";
 import CreateClientService from "./create-client-service";
-import ListAllClientsService from "./list-all-clients-service";
 
 const makeSut = () => {
   const clientRepository = makeClientRepositoryStub();

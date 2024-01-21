@@ -61,4 +61,15 @@ describe("ListClientsService", () => {
 
     expect(clientRepository.list).toHaveBeenCalledWith(params);
   });
+
+  it("Should throw if clientRepository.list throws", async () => {
+    const { sut, clientRepository } = makeSut();
+    const params = makeSearchParams();
+
+    jest.spyOn(clientRepository, "list").mockImplementation(() => {
+      throw new Error();
+    });
+
+    await expect(sut.execute(params)).rejects.toThrow();
+  });
 });

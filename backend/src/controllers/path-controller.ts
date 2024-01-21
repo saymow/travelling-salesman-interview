@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import ClientRepository from "../repositories/client-repository";
-import ComputeSalesmanTravellingService from "../services/compute-salesman-travelling";
+import ComputeSalesmanTravellingService from "../services/compute-salesman-travelling-service";
 import ListAllClientsService from "../services/list-all-clients-service";
 
 class PathController {

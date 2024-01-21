@@ -83,7 +83,7 @@ const Table: React.FC<Props> = (props) => {
   return (
     <Paper className="table-container">
       {searchParams && (
-        <Stack direction="row-reverse">
+        <Stack direction="row-reverse" my={1}>
           <Box>
             <SearchTextField
               placeholder={searchParams.placeholder}

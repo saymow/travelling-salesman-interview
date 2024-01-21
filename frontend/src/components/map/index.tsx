@@ -44,7 +44,7 @@ const MapContainer: React.FC<Props> = (props) => {
     <LeafLetMapContainer
       style={{ height }}
       center={ORIGIN}
-      zoom={3.5}
+      zoom={3}
       scrollWheelZoom={true}
     >
       <TileLayer

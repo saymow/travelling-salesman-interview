@@ -39,7 +39,11 @@ class ClientRepository {
       [name, email, phone, lat, lng]
     );
 
-    return result.rows[0] as Client;
+    return {
+      ...result.rows[0],
+      lat: parseFloat(result.rows[0].lat),
+      lng: parseFloat(result.rows[0].lng),
+    } as Client;
   }
 
   async list(params: SearchParams): Promise<SearchResult> {

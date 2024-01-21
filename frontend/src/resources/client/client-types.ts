@@ -1,4 +1,4 @@
-import { LatLngTuple } from "../../components/Map/helpers";
+import { LatLngTuple } from "../../components/map/helpers";
 import { Client } from "./client-model";
 
 export interface CreateClient {

@@ -1,5 +1,5 @@
 import { Button, ButtonProps } from "@mui/material";
-import Loading from "../Loading";
+import Loading from "../loading";
 
 interface Props extends ButtonProps {
   loading?: boolean;

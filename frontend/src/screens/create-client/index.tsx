@@ -6,10 +6,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import TextField from "../../components/TextField";
+import TextField from "../../components/text-field";
 import { Form, Formik } from "formik";
-import MapContainer from "../../components/Map";
-import { ORIGIN } from "../../components/Map/helpers";
+import MapContainer from "../../components/map";
+import { ORIGIN } from "../../components/map/helpers";
 import { CreateClient } from "../../resources/client/client-types";
 import useClient from "../../resources/client/use-client";
 import { useState } from "react";

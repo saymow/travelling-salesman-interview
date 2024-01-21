@@ -2,12 +2,12 @@ import { Box, Button, Container, Paper, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useClient from "../../resources/client/use-client";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Table, { Column, Row } from "../../components/Table";
+import Table, { Column, Row } from "../../components/table";
 import { Client } from "../../resources/client/client-model";
 import PathModal from "./path-modal";
 import "./styles.css";
-import Loading from "../../components/Loading";
-import MyButton from "../../components/Button";
+import Loading from "../../components/loading";
+import MyButton from "../../components/button";
 import usePath from "../../resources/path/use-path";
 
 const tableColumns: Column[] = [

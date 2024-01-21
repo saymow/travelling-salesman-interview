@@ -1,9 +1,9 @@
 import { Box, Stack } from "@mui/material";
 import { useMemo } from "react";
-import MapContainer, { Marker, Polyline } from "../../../components/Map";
-import { ORIGIN } from "../../../components/Map/helpers";
-import Modal from "../../../components/Modal";
-import Table, { Column, Row } from "../../../components/Table";
+import MapContainer, { Marker, Polyline } from "../../../components/map";
+import { ORIGIN } from "../../../components/map/helpers";
+import Modal from "../../../components/modal";
+import Table, { Column, Row } from "../../../components/table";
 import { Client } from "../../../resources/client/client-model";
 import { ExternalData } from "../../../resources/client/client-types";
 import { ClientsSalesmanTravellingResult } from "../../../resources/path/path-model";

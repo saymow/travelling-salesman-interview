@@ -83,7 +83,7 @@ describe("HomeScreen", () => {
     cy.wait("@clients-change-limit");
   });
 
-  it("Should open the path modal", () => {
+  it("Should open the path modal on clicking on 'Mostrar Rota' button", () => {
     cy.visit("http://localhost:5173");
 
     cy.intercept("http://localhost:3333/path").as("show-path");
@@ -93,5 +93,13 @@ describe("HomeScreen", () => {
     cy.contains("Mostrar Rota").click();
 
     cy.get(".MuiModal-root .path-modal-container");
+  });
+
+  it("Should navigate to CreateClientScreen on clicking on 'Cadastrar Cliente' button", () => {
+    cy.visit("http://localhost:5173");
+
+    cy.contains("Cadastrar cliente").click();
+
+    cy.url().should("include", "/create-client");
   });
 });

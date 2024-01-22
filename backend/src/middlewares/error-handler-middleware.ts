@@ -9,7 +9,6 @@ export const errorHandler = (
 ) => {
   if (error instanceof ValidationError) {
     const errorsMap: Record<string, string> = {};
-    console.log(error.path);
 
     error.inner.forEach(({ path, message }) => {
       if (path) errorsMap[path] = message;

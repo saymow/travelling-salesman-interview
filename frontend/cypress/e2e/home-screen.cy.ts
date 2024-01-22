@@ -13,7 +13,7 @@ describe("HomeScreen", () => {
     cy.wait("@clients-search");
   });
 
-  it("Should call the api with the correct pagination page values", async () => {
+  it("Should call the api with the correct pagination page values", () => {
     cy.visit("http://localhost:5173");
 
     const goToNextPageBtn = cy.get("[title='Go to next page']");
@@ -45,5 +45,26 @@ describe("HomeScreen", () => {
     cy.wait("@clients-paginate-backward");
 
     goToPreviousPageBtn.should("be.disabled");
+  });
+
+  it("Should call the api with the correct pagination limit values", () => {
+    cy.visit("http://localhost:5173");
+
+    cy.fixture("list-clients-response.json").then((body) => {
+      cy.intercept(`http://localhost:3333/clients*`, {
+        statusCode: 200,
+        body,
+      });
+    });
+
+    cy.intercept(
+      `http://localhost:3333/clients?limit=${25}&offset=${0}&q[email]=&q[name]=&q[phone]=`
+    ).as("clients-change-limit");
+
+    cy.get(".MuiTablePagination-input").click();
+
+    cy.get("#menu- .MuiMenu-list > li:nth-child(2)").trigger("click"); // The "25" li option
+
+    cy.wait("@clients-change-limit");
   });
 });

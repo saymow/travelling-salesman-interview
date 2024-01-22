@@ -54,7 +54,7 @@ const HomeScreen: React.FC = () => {
   const { salesmanPath, fetchSalesmanPath } = usePath();
   const [isPathModalOpen, setIsPathModalOpen] = useState(false);
   const initialLoading = useMemo(
-    () => clientsList.uninitialized,
+    () => !!clientsList.uninitialized,
     [clientsList.uninitialized]
   );
   const memoizedLimit = useMemo(

@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import { Box, Stack } from "@mui/material";
 import TableRow from "@mui/material/TableRow";
-import SearchTextField from "./SearchTextField";
+import SearchTextField from "./search-text-field";
 import "./styles.css";
 
 export interface Column {

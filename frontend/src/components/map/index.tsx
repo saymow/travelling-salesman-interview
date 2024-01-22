@@ -4,11 +4,11 @@ import {
   Polyline,
   TileLayer,
 } from "react-leaflet";
-import Marker, { Props as MarkerProps } from "./Marker";
-import MovableMarker, { Props as MovableMarkerProps } from "./MovableMarker";
+import Marker, { Props as MarkerProps } from "./marker";
+import MovableMarker, { Props as MovableMarkerProps } from "./movable-marker";
 import { ORIGIN } from "./helpers";
 import { LatLngTuple } from "leaflet";
-import Legend from "./Legend";
+import Legend from "./legend";
 
 interface MovableMarkerType extends MovableMarkerProps {
   type: "MOVABLE";

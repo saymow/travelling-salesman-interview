@@ -7,7 +7,7 @@ import {
 
 class ClientService {
   async create(createClientData: CreateClient): Promise<void> {
-    return api.post("/clients", { ...createClientData, email: null });
+    return api.post("/clients", { ...createClientData });
   }
 
   async list(params: ListClientsSearchParams): Promise<PaginetedClientsList> {

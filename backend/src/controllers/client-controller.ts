@@ -4,12 +4,14 @@ import ClientRepository, {
   SearchParams,
 } from "../repositories/client-repository";
 import ListClientsService from "../services/list-clients-service";
+import { createClientSchema, searchParamsSchema } from "../schemas";
 
 class ClientController {
   async create(req: Request, res: Response) {
     const data = req.body;
     const createClientService = new CreateClientService(new ClientRepository());
 
+    await createClientSchema.validate(data, { abortEarly: false });
     await createClientService.execute(data);
 
     return res.sendStatus(201);
@@ -18,6 +20,9 @@ class ClientController {
   async list(req: Request, res: Response) {
     const params = req.query;
     const listClientsService = new ListClientsService(new ClientRepository());
+
+    await searchParamsSchema.validate(params, { abortEarly: false });
+
     const clients = await listClientsService.execute(
       params as unknown as SearchParams
     );

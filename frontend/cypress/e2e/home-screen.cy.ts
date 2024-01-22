@@ -82,4 +82,16 @@ describe("HomeScreen", () => {
 
     cy.wait("@clients-change-limit");
   });
+
+  it("Should open the path modal", () => {
+    cy.visit("http://localhost:5173");
+
+    cy.intercept("http://localhost:3333/path").as("show-path");
+
+    cy.wait("@show-path");
+
+    cy.contains("Mostrar Rota").click();
+
+    cy.get(".MuiModal-root .path-modal-container");
+  });
 });

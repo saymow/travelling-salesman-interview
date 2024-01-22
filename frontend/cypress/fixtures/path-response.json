@@ -1,0 +1,149 @@
+{
+  "distance": 63189.115603422986,
+  "path": [
+    {
+      "id": 49,
+      "name": "Ana Silva",
+      "email": "ana.silva@example.com",
+      "phone": "31 91234 5678",
+      "lat": 40.7128,
+      "lng": -74.006,
+      "latLng": [40.7128, -74.006]
+    },
+    {
+      "id": 50,
+      "name": "Bruno Santos",
+      "email": "bruno.santos@example.com",
+      "phone": "31 98765 4321",
+      "lat": 34.0522,
+      "lng": -118.2437,
+      "latLng": [34.0522, -118.2437]
+    },
+    {
+      "id": 51,
+      "name": "Carla Oliveira",
+      "email": "carla.oliveira@example.com",
+      "phone": "31 99876 5432",
+      "lat": -33.8688,
+      "lng": 151.2093,
+      "latLng": [-33.8688, 151.2093]
+    },
+    {
+      "id": 52,
+      "name": "Diego Pereira",
+      "email": "diego.pereira@example.com",
+      "phone": "31 92345 6789",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "latLng": [51.5074, -0.1278]
+    },
+    {
+      "id": 53,
+      "name": "Elena Costa",
+      "email": "elena.costa@example.com",
+      "phone": "31 98765 8765",
+      "lat": 35.6895,
+      "lng": 139.6917,
+      "latLng": [35.6895, 139.6917]
+    },
+    {
+      "id": 54,
+      "name": "Fábio Lima",
+      "email": "fabio.lima@example.com",
+      "phone": "31 93333 2222",
+      "lat": -22.9068,
+      "lng": -43.1729,
+      "latLng": [-22.9068, -43.1729]
+    },
+    {
+      "id": 55,
+      "name": "Gabriela Rocha",
+      "email": "gabriela.rocha@example.com",
+      "phone": "31 94444 5555",
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "latLng": [48.8566, 2.3522]
+    },
+    {
+      "id": 56,
+      "name": "Hugo Ferreira",
+      "email": "hugo.ferreira@example.com",
+      "phone": "31 95555 4444",
+      "lat": -37.8136,
+      "lng": 144.9631,
+      "latLng": [-37.8136, 144.9631]
+    },
+    {
+      "id": 57,
+      "name": "Isabel Santos",
+      "email": "isabel.santos@example.com",
+      "phone": "31 96666 3333",
+      "lat": 55.7558,
+      "lng": 37.6176,
+      "latLng": [55.7558, 37.6176]
+    },
+    {
+      "id": 58,
+      "name": "João Costa",
+      "email": "joao.costa@example.com",
+      "phone": "31 97777 2222",
+      "lat": 19.076,
+      "lng": 72.8777,
+      "latLng": [19.076, 72.8777]
+    },
+    {
+      "id": 60,
+      "name": "Luís Pereira",
+      "email": "luis.pereira@example.com",
+      "phone": "31 99999 0000",
+      "lat": 40.4168,
+      "lng": -3.7038,
+      "latLng": [40.4168, -3.7038]
+    },
+    {
+      "id": 61,
+      "name": "Mariana Lima",
+      "email": "mariana.lima@example.com",
+      "phone": "31 91111 9999",
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "latLng": [37.7749, -122.4194]
+    },
+    {
+      "id": 62,
+      "name": "Nuno Rocha",
+      "email": "nuno.rocha@example.com",
+      "phone": "31 92222 8888",
+      "lat": -33.4489,
+      "lng": -70.6693,
+      "latLng": [-33.4489, -70.6693]
+    },
+    {
+      "id": 63,
+      "name": "Olga Ferreira",
+      "email": "olga.ferreira@example.com",
+      "phone": "31 93333 7777",
+      "lat": -33.9258,
+      "lng": 18.4232,
+      "latLng": [-33.9258, 18.4232]
+    },
+    {
+      "id": 59,
+      "name": "Kátia Oliveira",
+      "email": "katia.oliveira@example.com",
+      "phone": "31 98888 1111",
+      "lat": -34.6037,
+      "lng": -58.3816,
+      "latLng": [-34.6037, -58.3816]
+    },
+    {
+      "id": 64,
+      "name": "name",
+      "email": "name@example.com",
+      "phone": "99 99999 9999",
+      "lat": -23.60338,
+      "lng": -46.662567,
+      "latLng": [-23.60338, -46.662567]
+    }
+  ]
+}

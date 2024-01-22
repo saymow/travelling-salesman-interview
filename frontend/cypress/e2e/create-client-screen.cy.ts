@@ -1,4 +1,14 @@
 describe("CreateClientScreen", () => {
+  beforeEach(() => {
+    cy.fixture("list-clients-response.json").then((body) => {
+      cy.intercept(`http://localhost:3333/clients*`, { statusCode: 200, body });
+    });
+
+    cy.fixture("path-response.json").then((body) => {
+      cy.intercept(`http://localhost:3333/path`, { statusCode: 200, body });
+    });
+  });
+
   it("Should create a client and be redirected to home", () => {
     cy.visit("http://localhost:5173/create-client");
     const name = "name";

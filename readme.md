@@ -7,7 +7,7 @@
 
 ## Decisões 
 
-- Como optei por usar longitude e latitude, a distância é calculada pelo método haversine (distância entre dois pontos em um globo), não a distância euclidiana.
+- Como optei por usar latitude e longitude, a distância é calculada pelo método haversine (distância entre dois pontos em um globo), não pelo método de distância euclidiana.
 
 - Acredito que mapas podem ajudar na visualização, então adicionei mapas.
 
@@ -38,7 +38,7 @@ $ cp ./.template.env .env
 
 # Preencher o .env com dados do banco (manter a porta)
 
-# (Opcional) Rodar script the seed do banco de dados
+# (Opcional) Rodar script de seed do banco de dados
 $ npm run seed
 
 # (Opcional) Rodar testes nas classes de serviço e helpers

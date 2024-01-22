@@ -54,4 +54,11 @@ $ npm install
 
 # Rodar o frontend em modo dev 
 $ npm run dev
+
+# (Opcional) Rodar testes e2e
+$ npm run cypress:run
 ```
+
+## Extras 
+
+Se você estiver no linux, talvez tenha problemas ao rodar os testes e2e do cypress. Tem um guia <a href="https://docs.cypress.io/guides/getting-started/installing-cypress#Linux-Prerequisites" target="_blank">aqui</a>.

@@ -1,4 +1,19 @@
 describe("HomeScreen", () => {
+  it("Should display all clients returned from the api", () => {
+    cy.visit("http://localhost:5173");
+
+    cy.fixture("list-clients-response.json").then((body) => {
+      cy.intercept(`http://localhost:3333/clients*`, { statusCode: 200, body });
+    });
+
+    cy.intercept(`http://localhost:3333/clients*`).as("list-clients");
+
+    cy.wait("@list-clients");
+    const tableRows = cy.get(".MuiTableRow-root");
+
+    tableRows.should("have.length", 10 + 1); // + 1 comes because of the header row
+  });
+
   it("Should call the api with the correct search values", () => {
     const searchInput = "Test";
 

@@ -135,7 +135,7 @@ const Table: React.FC<Props> = (props) => {
       </TableContainer>
       {paginationParams && (
         <TablePagination
-          sx={{ marginTop: "auto", overflow: 'hidden' }}
+          sx={{ marginTop: "auto", overflow: "hidden" }}
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           count={total}

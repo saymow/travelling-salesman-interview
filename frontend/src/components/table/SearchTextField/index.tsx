@@ -16,6 +16,7 @@ const SearchTextField: React.FC<Props> = (props) => {
 
   return (
     <TextField
+      className="table-search-text-field"
       value={value}
       placeholder={placeholder}
       onChange={handleChange}

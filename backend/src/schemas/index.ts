@@ -12,7 +12,7 @@ export const searchParamsSchema = yup.object().shape({
   offset: yup.number().required(),
   q: yup.object().shape({
     name: yup.string(),
-    email: yup.string().email(),
+    email: yup.string(),
     phone: yup.string(),
   }),
 });

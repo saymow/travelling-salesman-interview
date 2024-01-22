@@ -1,0 +1,5 @@
+.my-text-field-container .MuiFormHelperText-root {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+}
